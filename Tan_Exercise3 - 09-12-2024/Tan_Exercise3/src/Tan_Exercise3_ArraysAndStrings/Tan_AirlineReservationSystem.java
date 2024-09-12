@@ -5,17 +5,17 @@ import java.util.Arrays;
 
 public class Tan_AirlineReservationSystem {
 	final static int capacity = 10;
-	static Scanner input = new Scanner(System.in);
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		Scanner input = new Scanner(System.in);
 		char[] plane = new char[capacity];
 		Arrays.fill(plane, 'o');
 		
 		do {
 		String passengerClass = "";
 		int passengerType = getPassengerType();
+		int passengerClassNumber = passengerType;
 		if (passengerType == 1) {
 			passengerClass = "First-Class";
 		} else {
@@ -23,9 +23,10 @@ public class Tan_AirlineReservationSystem {
 		}
 		String response = "";
 		int seatNumber = 0;
-		boolean available = checkSeatAvailability(passengerType, plane);
+		boolean available = checkSeatAvailability(passengerClassNumber, plane);
 		if (available) {
-			seatNumber = assignSeatBasedOnType(passengerType, plane);
+			seatNumber = assignSeatBasedOnType(passengerClassNumber, plane);
+			printBoardingPass(seatNumber+1, plane);
 		} else {
 			
 			if(passengerType == 1) {
@@ -35,23 +36,30 @@ public class Tan_AirlineReservationSystem {
 				System.out.print("No seat Available. Is it acceptable to be placed in first-class section? ");
 			}
 			response = input.nextLine();
-		}
-		if (response.equalsIgnoreCase("yes")) {
-			if (passengerType == 1) {
-				passengerType += 1;
-				seatNumber = assignSeatBasedOnType(passengerType, plane);
+			if (response.equalsIgnoreCase("yes")) {
+				if (passengerType == 1) {
+					passengerClassNumber += 1;
+					seatNumber = assignSeatBasedOnType(passengerClassNumber, plane);
+					printBoardingPass(seatNumber+1, plane);
+				} else {
+					passengerClassNumber -= 1;
+					seatNumber = assignSeatBasedOnType(passengerClassNumber, plane);
+					printBoardingPass(seatNumber+1, plane);
+				}
 			} else {
-				passengerType -= 1;
-				seatNumber = assignSeatBasedOnType(passengerType, plane);
+				System.out.println("Next flight leaves in 3 hours.");
 			}
-		} else {
-			System.out.println("Next flight leaves in 3 hours.");
 		}
+		
 		} while (true);
 	} 
 	
-	
+	public static void printBoardingPass(int seatNumber, char[] plane) {
+		System.out.println("Your Seat Number is: " + seatNumber);
+		System.out.println(Arrays.toString(plane));
+	}
 	public static int getPassengerType() {
+		Scanner input = new Scanner(System.in);
 		int passenger = 0;
 		do {
 			System.out.print("Please Enter Passenger Type: ");
