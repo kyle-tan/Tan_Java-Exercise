@@ -55,8 +55,12 @@ public class Tan_AirlineReservationSystem {
 	} 
 	
 	public static void printBoardingPass(int seatNumber, char[] plane) {
+		System.out.println();
+		System.out.println("==========================================");
 		System.out.println("Your Seat Number is: " + seatNumber);
 		System.out.println(Arrays.toString(plane));
+		System.out.println("==========================================");
+		System.out.println();
 	}
 	public static int getPassengerType() {
 		Scanner input = new Scanner(System.in);
