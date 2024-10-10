@@ -19,7 +19,7 @@ public class CalculateDiscount {
 		long startTime = System.nanoTime();
 		int discount = calculateDiscount(isNewCustomer, hasLoyaltyCard, hasCoupon);
 		long endTime = System.nanoTime();
-		System.out.println("Elapsed Time in ns: " + (endTime - startTime));
+		System.out.println("Elapsed Time in ns: " + ((endTime - startTime)/1000));
 		displayOutput(discount);
 	}
 	
@@ -48,43 +48,32 @@ public class CalculateDiscount {
 		int newCustomerDiscount = 15;
 		int loyaltyCardHolderDiscount = 10;
 		int couponDiscount = 20;
-//		return newCustomer ? loyaltyCardHolder ? -1 : couponHolder ? 
-//				Math.max(newCustomerDiscount, couponDiscount) : newCustomerDiscount : 
-//					loyaltyCardHolder ? couponHolder ? loyaltyCardHolderDiscount + couponDiscount :
-//						loyaltyCardHolderDiscount : couponHolder ? couponDiscount : 0;
 		
 		if (newCustomer) {
 			if(loyaltyCardHolder) {
-				if (couponHolder || !couponHolder) {
-					return -1;
-				}
+				return -1;
 			}
-			if(!loyaltyCardHolder) {
-				if (couponHolder) {
-					return Math.max(newCustomerDiscount, couponDiscount);
-				}
-				if(!couponHolder) {
-					return newCustomerDiscount;
-				}
+			if(!loyaltyCardHolder && couponHolder) {
+				return Math.max(newCustomerDiscount, couponDiscount);
+			} 
+			if (!loyaltyCardHolder && !couponHolder){
+				return newCustomerDiscount;
 			}
 		}
 		
 		if (!newCustomer) {
-			if(loyaltyCardHolder) {
-				if (couponHolder) {
-					return loyaltyCardHolderDiscount + couponDiscount;
-				} 
-				if (!couponHolder) {
-					return loyaltyCardHolderDiscount;
-				}
+			if(loyaltyCardHolder && couponHolder) {
+				return loyaltyCardHolderDiscount + couponDiscount;
+			} 
+			if (loyaltyCardHolder && !couponHolder){ 
+				return loyaltyCardHolderDiscount;
 			}
-			if(!loyaltyCardHolder) {
-				if (couponHolder) {
-					return couponDiscount;
-				}
-				if(!couponHolder) {
-					return 0;
-				}
+			if(!loyaltyCardHolder && couponHolder) {
+				return couponDiscount;
+			} 
+			if (!loyaltyCardHolder && !couponHolder) {
+				return 0;
+			
 			}
 		}
 		
@@ -92,6 +81,7 @@ public class CalculateDiscount {
 	}
 	
 	public static void displayOutput(int discount) {
+		
 		if (discount == -1) {
 			System.out.println("Discount is not applicable. Please check input again.");
 		}
@@ -99,6 +89,7 @@ public class CalculateDiscount {
 		if (discount != -1) {
 			System.out.println("Your total discount is : " + discount + "%.");
 		}
+	
 	}
 	
 	
