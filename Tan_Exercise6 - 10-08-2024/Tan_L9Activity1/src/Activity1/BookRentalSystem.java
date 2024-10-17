@@ -1,14 +1,13 @@
 package Activity1;
 
 public class BookRentalSystem {
-	static Book[] book = {new FictionBook("The Lord of the Rings",
-			"J.R.R. Tolkien", 1954),
+	static Book[] book = {
+			new FictionBook("The Lord of the Rings", "J.R.R. Tolkien", 1954),
 			new FictionBook("To Kill a Mockingbird", "Harper Lee", 1960),
 			 new NonFictionBook("The Tipping Point", "M. Gladwell", 2000),
 			 new NonFictionBook("Guns, Germs, and Steel", "Jared Diamond", 1997)};
 	
 	public static void main (String[] args) {
-		
 		displayBooks();
 		rentedBooks();
 	}
