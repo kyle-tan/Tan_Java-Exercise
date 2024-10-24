@@ -1,6 +1,6 @@
-package DungeonsAndDragons;
+package DungeonsAndDragons2;
 
-public abstract class DnDCharacter {
+public abstract class DnDCharacter implements Abilities{
 	public String characterName;
 	public int health;
 	public int damage;
