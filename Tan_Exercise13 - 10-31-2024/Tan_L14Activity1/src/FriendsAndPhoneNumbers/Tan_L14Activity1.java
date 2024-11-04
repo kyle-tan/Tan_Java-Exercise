@@ -17,10 +17,10 @@ public class Tan_L14Activity1 {
 		obj.getUserInput();
 		String searchName = "";
 		do {
-		obj.displayContacts();
-		searchName = obj.nameToSearch();
-		obj.searchForName(searchName);
-		} while (!searchName.equalsIgnoreCase("exit"));
+			obj.displayContacts();
+			searchName = obj.nameToSearch();
+			obj.searchForName(searchName);
+		} while (true);
 		
 	}
 	
