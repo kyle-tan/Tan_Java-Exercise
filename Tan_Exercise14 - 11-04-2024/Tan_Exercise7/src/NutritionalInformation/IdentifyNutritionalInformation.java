@@ -68,7 +68,8 @@ public class IdentifyNutritionalInformation {
 	public void displayNutritionalInformation (Fruits fruit) {
 		System.out.printf("Nutritional Information for %s"
 				+ "\nCalories: %d"
-				+ "\nVitamin C: %.2f mg", fruit, fruit.getCalories(), fruit.getVitaminC());
+				+ "\nVitamin C: %.2f mg", 
+				fruit, fruit.getCalories(), fruit.getVitaminC());
 	}
 
 }
