@@ -17,5 +17,35 @@ public class GenericsCalculator<T extends Number> {
 		return num_2;
 	}
 	
+	public double performOperation(char ops) {
+		double result = 0.0;
+		switch(ops) {
+		case 'a', 'A':
+			result = num_1.doubleValue() + num_2.doubleValue();
+			System.out.printf("%.2f + %.2f = %.2f\n", num_1.doubleValue(), num_2.doubleValue(), result);
+			break;
+		case 'b', 'B':
+			result = num_1.doubleValue() - num_2.doubleValue();
+		System.out.printf("%.2f - %.2f = %.2f\n", num_1.doubleValue(), num_2.doubleValue(), result);
+			break;
+		case 'c', 'C':
+			result = num_1.doubleValue() * num_2.doubleValue();
+		System.out.printf("%.2f * %.2f = %.2f\n", num_1.doubleValue(), num_2.doubleValue(), result);
+			break;
+		case 'd', 'D':
+			result = num_1.doubleValue() / num_2.doubleValue();
+		System.out.printf("%.2f / %.2f = %.2f\n", num_1.doubleValue(), num_2.doubleValue(), result);
+			break;
+		case 'e', 'E':
+			System.out.println("Thank you for using our calculator");
+			System.exit(0);
+			break;
+		default:
+			System.out.println("Kindly choose from the menu");
+			break;
+				
+		}
+		return result;
+	}
 	
 }
