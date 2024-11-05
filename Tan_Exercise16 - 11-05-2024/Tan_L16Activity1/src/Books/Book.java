@@ -1,7 +1,5 @@
 package Books;
 
-import java.util.Date;
-
 public class Book {
 	private String title;
 	private String author;
