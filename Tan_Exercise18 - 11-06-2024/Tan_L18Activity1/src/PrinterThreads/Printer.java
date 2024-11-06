@@ -8,19 +8,18 @@ public class Printer implements Runnable{
 	}
 	
 	private void printDocuments() {
-		System.out.println("Printing: " + getDocumentName());
+		System.out.println("Printing: " + documentName);
 		try {
+			System.out.println(Thread.currentThread().getName() + " status: running");
 			Thread.sleep(2000);
+			System.out.println("Finished printing: " + documentName);
+			System.out.println(Thread.currentThread().getName() + " status: terminated");
 		} catch (InterruptedException e) {
-			
+			System.out.println("Printing Interrupted for " + documentName);
 		}
-		System.out.println("Finished printing: " + getDocumentName());
+		
 	}
 	
-	public String getDocumentName() {
-		return documentName;
-	}
-
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
