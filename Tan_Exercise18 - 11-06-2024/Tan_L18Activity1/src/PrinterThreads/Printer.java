@@ -20,7 +20,6 @@ public class Printer implements Runnable{
 			}
 		}
 		
-		
 	}
 	
 	@Override

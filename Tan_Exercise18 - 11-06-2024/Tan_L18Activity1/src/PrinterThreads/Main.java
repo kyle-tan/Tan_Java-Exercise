@@ -10,16 +10,16 @@ public class Main {
 		
 		System.out.println();
 		
-		if(thread1.isAlive()) {
-			System.out.println("Thread-1 status: running.");
-		} else { 
-			System.out.println("Thread-1 status: terminated.");
-		}
-		if(thread1.isAlive()) {
-			System.out.println("Thread-2 status: running");
-		} else {
-			System.out.println("Thread-2 status: terminated.");
-		}
+//		if(thread1.isAlive()) {
+//			System.out.println("Thread-1 status: running.");
+//		} else { 
+//			System.out.println("Thread-1 status: terminated.");
+//		}
+//		if(thread2.isAlive()) {
+//			System.out.println("Thread-2 status: running");
+//		} else {
+//			System.out.println("Thread-2 status: terminated.");
+//		}
 		
 		try {
 			thread1.join();
