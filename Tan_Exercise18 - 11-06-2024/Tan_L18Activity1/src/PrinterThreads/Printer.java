@@ -12,7 +12,7 @@ public class Printer implements Runnable{
 		synchronized (Printer.class){
 			try {
 				System.out.println(Thread.currentThread().getName() + " status: running");
-				Thread.sleep(5000);
+				Thread.sleep(2000);
 				System.out.println("Finished printing: " + documentName);
 				System.out.println(Thread.currentThread().getName() + " status: terminated");
 			} catch (InterruptedException e) {
