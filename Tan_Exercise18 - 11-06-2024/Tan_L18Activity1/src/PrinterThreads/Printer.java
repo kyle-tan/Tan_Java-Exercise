@@ -9,14 +9,17 @@ public class Printer implements Runnable{
 	
 	private void printDocuments() {
 		System.out.println("Printing: " + documentName);
-		try {
-			System.out.println(Thread.currentThread().getName() + " status: running");
-			Thread.sleep(2000);
-			System.out.println("Finished printing: " + documentName);
-			System.out.println(Thread.currentThread().getName() + " status: terminated");
-		} catch (InterruptedException e) {
-			System.out.println("Printing Interrupted for " + documentName);
+		synchronized (Printer.class){
+			try {
+				System.out.println(Thread.currentThread().getName() + " status: running");
+				Thread.sleep(5000);
+				System.out.println("Finished printing: " + documentName);
+				System.out.println(Thread.currentThread().getName() + " status: terminated");
+			} catch (InterruptedException e) {
+				System.out.println("Printing Interrupted for " + documentName);
+			}
 		}
+		
 		
 	}
 	
